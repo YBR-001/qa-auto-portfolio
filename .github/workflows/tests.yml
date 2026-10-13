@@ -34,6 +34,18 @@ jobs:
     - name: Run Pytest
       run: pytest ui_project/tests --alluredir=allure-results
       continue-on-error: true
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        STANDARD_USER: ${{ secrets.STANDARD_USER }}
+        PROBLEM_USER: ${{ secrets.PROBLEM_USER }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        CHECKOUT_ONE_PAGE_URL: ${{ secrets.CHECKOUT_ONE_PAGE_URL }}
+        CHECKOUT_TWO_PAGE_URL: ${{ secrets.CHECKOUT_TWO_PAGE_URL }}
+        CHECKOUT_COMPLETE_PAGE_URL: ${{ secrets.CHECKOUT_COMPLETE_PAGE_URL }}
+        FIRST_NAME: ${{ secrets.FIRST_NAME }}
+        LAST_NAME: ${{ secrets.LAST_NAME }}
+        POSTAL_CODE: ${{ secrets.POSTAL_CODE }}
+        API_BASE_URL: ${{ secrets.API_BASE_URL }}
 
     - name: Get Allure history
       uses: actions/checkout@v4
