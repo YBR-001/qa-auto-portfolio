@@ -9,6 +9,9 @@ from ui_project.pages.checkout_page import CheckoutOnePage
 from ui_project.pages.checkout_page import CheckoutTwoPage
 from ui_project.pages.checkout_page import CheckoutCompletePage
 from config import config
+from faker import Faker
+
+faker = Faker()
 
 @pytest.fixture
 def base_page(page: Page):
@@ -53,3 +56,26 @@ def go_to_inventory_page(login_page, inventory_page):
     login_page.login(config.standard_user, config.password)
     expect(inventory_page.title).to_have_text("Products")
     yield inventory_page
+
+@pytest.fixture
+def go_to_cart_page(cart_page, go_to_inventory_page):
+    max_item_cnt = go_to_inventory_page.get_items_count()
+    item_number = faker.random_int(1, max_item_cnt)
+    go_to_inventory_page.add_item_number(item_number)
+    expect(go_to_inventory_page.header.cart_badge).to_have_text("1")
+    go_to_inventory_page.header.click_cart()
+    expect(cart_page.title).to_have_text("Your Cart")
+    expect(cart_page.header.cart_badge).to_have_text("1")
+    yield cart_page
+
+@pytest.fixture
+def go_to_cart_with_items(cart_page, go_to_inventory_page):
+    max_item_cnt = go_to_inventory_page.get_items_count()
+    item_number = faker.random_int(2, max_item_cnt)
+    for i in range(1, item_number + 1):
+        go_to_inventory_page.add_item_number(i)
+    expect(go_to_inventory_page.header.cart_badge).to_have_text(str(item_number))
+    go_to_inventory_page.header.click_cart()
+    expect(cart_page.title).to_have_text("Your Cart")
+    expect(cart_page.header.cart_badge).to_have_text(str(item_number))
+    yield cart_page, item_number
