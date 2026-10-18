@@ -1,8 +1,0 @@
-pytest
-pytest-playwright
-pydantic
-pydantic-settings
-allure-pytest
-httpx
-faker
-allure-pytest
