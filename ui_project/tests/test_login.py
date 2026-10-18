@@ -13,12 +13,12 @@ def test_login_successful(login_page, inventory_page, base_page):
 
 @allure.feature("Авторизация")
 @allure.title("Негативные проверки при авторизации")
-@pytest.mark.parametrize("username, password, expected_error_msg", [("locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."),
-                                                                    ("standard_user", "wrong_password", "Epic sadface: Username and password do not match any user in this service"),
+@pytest.mark.parametrize("username, password, expected_error_msg", [("locked_out_user", config.password, "Epic sadface: Sorry, this user has been locked out."),
+                                                                    (config.standard_user, "wrong_password", "Epic sadface: Username and password do not match any user in this service"),
                                                                     ("", "", "Epic sadface: Username is required"),
-                                                                    ("standard_user", "", "Epic sadface: Password is required"),
-                                                                    ("", "secret_sauce", "Epic sadface: Username is required")])
-def test_login_failure(login_page, username, password, expected_error_msg):
+                                                                    (config.standard_user, "", "Epic sadface: Password is required"),
+                                                                    ("", config.password, "Epic sadface: Username is required")])
+def test_login_failure(login_page, username: str, password: str, expected_error_msg):
     login_page.open_url(config.base_url)
     login_page.login(username, password)
     expect(login_page.login_error_msg).to_have_text(expected_error_msg)

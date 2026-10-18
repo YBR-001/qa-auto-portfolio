@@ -79,3 +79,10 @@ def go_to_cart_with_items(cart_page, go_to_inventory_page):
     expect(cart_page.title).to_have_text("Your Cart")
     expect(cart_page.header.cart_badge).to_have_text(str(item_number))
     yield cart_page, item_number
+
+@pytest.fixture
+def go_to_checkout_page(go_to_cart_page, checkout_one_page):
+    go_to_cart_page.click_checkout_button()
+    expect(checkout_one_page.title).to_have_text("Checkout: Your Information")
+    expect(checkout_one_page.header.cart_badge).to_have_text("1")
+    yield checkout_one_page
