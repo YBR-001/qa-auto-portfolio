@@ -86,3 +86,19 @@ def go_to_checkout_page(go_to_cart_page, checkout_one_page):
     expect(checkout_one_page.title).to_have_text("Checkout: Your Information")
     expect(checkout_one_page.header.cart_badge).to_have_text("1")
     yield checkout_one_page
+
+@pytest.fixture
+def go_to_overview_page(go_to_checkout_page, checkout_two_page):
+    go_to_checkout_page.fill_shipping_info(config.standard_user, config.standard_user, config.postal_code)
+    go_to_checkout_page.click_continue_button()
+    expect(checkout_two_page.title).to_have_text("Checkout: Overview")
+    expect(checkout_two_page.header.cart_badge).to_have_text("1")
+    yield checkout_two_page
+
+# Добавить фиксутру с несколькими товарами go_to_overview_page, наследовавшись от go_to_cart_with_items и тд
+
+@pytest.fixture
+def go_to_complete_page(go_to_overview_page, checkout_complete_page):
+    go_to_overview_page.click_finish_button()
+    expect(checkout_complete_page.title).to_have_text("Checkout: Complete!")
+    yield checkout_complete_page

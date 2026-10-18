@@ -59,6 +59,8 @@ def test_check_available_buttons_in_checkout_one(go_to_checkout_page):
     expect(go_to_checkout_page.continue_button).to_be_enabled()
     expect(go_to_checkout_page.cancel_button).to_be_visible()
     expect(go_to_checkout_page.cancel_button).to_be_enabled()
+    expect(go_to_checkout_page.header.cart_link).to_be_visible()
+    expect(go_to_checkout_page.header.cart_link).to_be_enabled()
 
 @allure.feature("Страница данных пользователя (Checkout One Page)")
 @allure.story("Управление доступными кнопками на странице")

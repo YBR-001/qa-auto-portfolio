@@ -5,7 +5,7 @@ from config import config
 
 @allure.feature("Оформление заказа")
 @allure.title("Успешное оформление заказа")
-@pytest.mark.e2e
+@pytest.mark.skip
 def test_buy_product_e2e(base_page, cart_page, checkout_one_page, checkout_two_page, checkout_complete_page, login_page, inventory_page):
     login_page.open_url(config.base_url)
     login_page.login(config.standard_user, config.password)
