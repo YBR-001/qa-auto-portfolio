@@ -6,7 +6,7 @@ faker = Faker()
 
 @allure.feature("Корзина (Cart Page)")
 @allure.story("Управление доступными кнопками в корзине")
-@allure.title("Проверка доступности кнопок действий в корзине")
+@allure.title("Проверка видимости доступности кнопок действий в корзине")
 def test_check_available_buttons(go_to_cart_page):
     expect(go_to_cart_page.checkout_button).to_be_visible()
     expect(go_to_cart_page.checkout_button).to_be_enabled()
@@ -14,6 +14,8 @@ def test_check_available_buttons(go_to_cart_page):
     expect(go_to_cart_page.continue_shopping_button).to_be_enabled()
     expect(go_to_cart_page.remove_button).to_be_visible()
     expect(go_to_cart_page.remove_button).to_be_enabled()
+    expect(go_to_cart_page.header.cart_link).to_be_visible()
+    expect(go_to_cart_page.header.cart_link).to_be_enabled()
 
 @allure.feature("Корзина (Cart Page)")
 @allure.story("Управление товарами в корзине")

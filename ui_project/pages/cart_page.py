@@ -10,6 +10,8 @@ class CartPage(BasePage):
         self.checkout_button = page.locator('[data-test="checkout"]')
         self.inventory_item_name = page.locator('[data-test="inventory-item-name"]')
         self.inventory_item_name_in_card = page.locator('[class="inventory_details_name large_size"]')
+        self.inventory_item_price_in_card = page.locator('[class="inventory_details_price"]')
+        self.inventory_item_description_in_card = page.locator('[class="inventory_details_desc large_size"]')
         self.continue_shopping_button = page.locator('[data-test="continue-shopping"]')
         self.inventory_item_price = page.locator('[data-test="inventory-item-price"]')
         self.inventory_item_description = page.locator('[data-test="inventory-item-desc"]')
