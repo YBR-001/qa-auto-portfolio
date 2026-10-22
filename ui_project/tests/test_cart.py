@@ -73,7 +73,18 @@ def test_check_color_button_action(go_to_cart_page):
 def test_check_info_in_item_card(go_to_cart_page):
     name_item_cart = go_to_cart_page.get_item_name_by_number(1)
     go_to_cart_page.click_item_name()
-    name_item_in_card = go_to_cart_page.inventory_item_name_in_card.inner_text()
+    name_item_in_card = go_to_cart_page.item_card.get_item_name_in_card()
+    assert name_item_in_card == name_item_cart, f"Названия товаров должны быть равными. Ожидалось {name_item_cart}, а получили {name_item_in_card}"
+
+@allure.feature("Корзина (Cart Page)")
+@allure.story("Информация карточки товара в корзине")
+@allure.title("Проверка корректности информации в карточке товара при нескольких товарах в корзине")
+def test_check_info_in_item_card_with_items(go_to_cart_with_items):
+    cart_page, item_number = go_to_cart_with_items
+    random_item_number = faker.random_int(1, item_number)
+    name_item_cart = cart_page.get_item_name_by_number(random_item_number)
+    cart_page.click_item_by_name(name_item_cart)
+    name_item_in_card = cart_page.item_card.get_item_name_in_card()
     assert name_item_in_card == name_item_cart, f"Названия товаров должны быть равными. Ожидалось {name_item_cart}, а получили {name_item_in_card}"
 
 @allure.feature("Корзина (Cart Page)")

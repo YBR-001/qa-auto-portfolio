@@ -64,6 +64,23 @@ def test_check_order_price_calculation(go_to_overview_page):
     assert calc_total_amount == convert_item_amount, f"Ожидалось значение {convert_item_amount}, а получили {calc_total_amount}"
 
 @allure.feature("Страница просмотра итогового заказа (Checkout Overview)")
+@allure.story("Информация о товаре в форме доставке")
+@allure.title("Проверка расчётов всех значений с несколькими товарами")
+def test_check_order_price_calculation_with_items(go_to_overview_page_with_items):
+    checkout_two_page, item_number = go_to_overview_page_with_items
+    calc_total_price = checkout_two_page.calculate_items_subtotal()
+    total_price_value = checkout_two_page.get_displayed_subtotal()
+    assert calc_total_price == total_price_value, f"Ожидалось значение {total_price_value}, а получили {calc_total_price}"
+    expect(checkout_two_page.tax_value).to_be_visible()
+    calc_tax_value = checkout_two_page.calculate_tax()
+    tax_value = checkout_two_page.get_displayed_tax()
+    assert calc_tax_value == tax_value, f"Ожидалось значение {tax_value}, а получили {calc_tax_value}"
+    expect(checkout_two_page.total_amount).to_be_visible()
+    calc_total_amount = checkout_two_page.calculate_total_with_tax()
+    convert_item_amount = checkout_two_page.get_displayed_total_with_tax()
+    assert calc_total_amount == convert_item_amount, f"Ожидалось значение {convert_item_amount}, а получили {calc_total_amount}"
+
+@allure.feature("Страница просмотра итогового заказа (Checkout Overview)")
 @allure.story("Взаимодействие с товаром на странице")
 @allure.title("Проверка корректности информации на данной странице и карточке товара")
 def test_check_info_in_item_card(go_to_overview_page, cart_page):
@@ -71,13 +88,13 @@ def test_check_info_in_item_card(go_to_overview_page, cart_page):
     expect_item_price = go_to_overview_page.get_item_price()
     expect_item_description = go_to_overview_page.get_item_description()
     go_to_overview_page.click_item_name()
-    expect(cart_page.inventory_item_name_in_card).to_be_visible()
-    expect(cart_page.inventory_item_price_in_card).to_be_visible()
-    expect(cart_page.inventory_item_description_in_card).to_be_visible()
+    expect(cart_page.item_card.inventory_item_name_in_card).to_be_visible()
+    expect(cart_page.item_card.inventory_item_price_in_card).to_be_visible()
+    expect(cart_page.item_card.inventory_item_description_in_card).to_be_visible()
     expect(cart_page.remove_button).to_be_visible()
-    actual_item_name = cart_page.inventory_item_name_in_card.inner_text() #Позже вынести в отдельный класс
-    actual_item_price = cart_page.inventory_item_price_in_card.inner_text()
-    actual_item_description = cart_page.inventory_item_description_in_card.inner_text()
+    actual_item_name = cart_page.item_card.get_item_name_in_card()
+    actual_item_price = cart_page.item_card.get_item_price_in_card()
+    actual_item_description = cart_page.item_card.get_item_description_in_card()
     assert expect_item_name == actual_item_name, f"Ожидалось название товара {expect_item_name}, а получили {actual_item_name}"
     assert expect_item_price == actual_item_price, f"Ожидалась цена товара {expect_item_price}, а получили {actual_item_price}"
     assert expect_item_description == actual_item_description, f"Ожидалось описание товара {expect_item_description}, а получили {actual_item_description}"
