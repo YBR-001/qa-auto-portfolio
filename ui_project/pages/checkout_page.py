@@ -2,11 +2,13 @@ import allure
 from playwright.sync_api import Page
 from ui_project.pages.base_page import BasePage
 from ui_project.pages.components.header import HeaderComponent
+from ui_project.pages.components.item_card import ItemCard
 
 class CheckoutOnePage (BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
         self.header = HeaderComponent(page)
+        self.item_card = ItemCard(page)
         self.first_name = page.locator('[data-test="firstName"]')
         self.last_name = page.locator('[data-test="lastName"]')
         self.postal_code = page.locator('[data-test="postalCode"]')
@@ -34,6 +36,7 @@ class CheckoutTwoPage (BasePage):
     def __init__(self, page: Page):
         super().__init__(page)
         self.header = HeaderComponent(page)
+        self.item_card = ItemCard(page)
         self.item_name = page.locator('[data-test="inventory-item-name"]')
         self.item_price = page.locator('[data-test="inventory-item-price"]')
         self.item_description = page.locator('[data-test="inventory-item-desc"]')
@@ -63,7 +66,7 @@ class CheckoutTwoPage (BasePage):
     def get_displayed_subtotal(self):
         item_total = self.item_total.inner_text()
         item_total = item_total.replace("Item total: $", "")
-        return float(item_total)
+        return round(float(item_total), 2)
     @allure.step("Расчёт налогов от суммы товаров в корзине")
     def calculate_tax(self):
         tax_value = self.calculate_items_subtotal()*0.08
@@ -85,15 +88,20 @@ class CheckoutTwoPage (BasePage):
     @allure.step("Переход в карточку товара из overview")
     def click_item_name(self):
         self.item_name.click()
-    @allure.step("Получение названия товара")
+    @allure.step("Получение названия единственного товара")
     def get_item_name(self):
         return self.item_name.inner_text()
-    @allure.step("Получение цены товара")
+    @allure.step("Получение цены единственного товара")
     def get_item_price(self):
-        return self.item_price.inner_text()
-    @allure.step("Получение описания товара")
+        dirty_price = self.item_price.inner_text()
+        clean_price = dirty_price.replace("$", "")
+        return float(clean_price)
+    @allure.step("Получение описания единственного товара")
     def get_item_description(self):
         return self.item_description.inner_text()
+    @allure.step("Получение количества всех добавленных товаров в заказе")
+    def get_item_count_in_order(self):
+        return len(self.item_name.all_inner_texts())
 
 class CheckoutCompletePage (BasePage):
     def __init__(self, page: Page):
