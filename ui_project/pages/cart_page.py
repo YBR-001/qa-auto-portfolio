@@ -9,6 +9,7 @@ class CartPage(BasePage):
         super().__init__(page)
         self.header = HeaderComponent(page)
         self.item_card = ItemCard(page)
+        self.inventory_item = page.locator('[data-test="inventory-item"]')
         self.inventory_item_name = page.locator('[data-test="inventory-item-name"]')
         self.inventory_item_price = page.locator('[data-test="inventory-item-price"]')
         self.inventory_item_description = page.locator('[data-test="inventory-item-desc"]')
@@ -20,6 +21,9 @@ class CartPage(BasePage):
     @allure.step("Получение списка названий товаров в корзине")
     def get_all_item_name(self):
         return self.inventory_item_name.all_inner_texts()
+    @allure.step("Получение количества товаров в корзине")
+    def get_items_count(self):
+        return self.inventory_item_name.count()
     @allure.step("Нажатие на кнопку Remove")
     def click_remove_button(self):
         self.remove_button.click()
@@ -44,6 +48,13 @@ class CartPage(BasePage):
     @allure.step("Удаление товара из корзины по номеру: {item_number}")
     def delete_item_by_number(self, item_number: int):
         self.remove_button.nth(item_number-1).click()
+    @allure.step("Получение цены товара из корзины по названию: {item_name}")
+    def get_item_price_by_name(self, item_name: str):
+        price = self.inventory_item.filter(has_text=item_name).locator(self.inventory_item_price).inner_text()
+        return float(price.replace("$", ""))
+    @allure.step("Получение описания товара из корзины по названию: {item_name}")
+    def get_item_description_by_name(self, item_name: str):
+        return self.inventory_item.filter(has_text=item_name).locator(self.inventory_item_description).inner_text()
     @allure.step("Получение названия единственного товара в корзине")
     def get_item_name(self):
         return self.inventory_item_name.inner_text()

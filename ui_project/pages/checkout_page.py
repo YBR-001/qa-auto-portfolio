@@ -22,6 +22,9 @@ class CheckoutOnePage (BasePage):
         self.first_name.fill(first_name)
         self.last_name.fill(last_name)
         self.postal_code.fill(postal_code)
+    @allure.step("Частичное заполнение данных доставки: почтовый индекс {postal_code}")
+    def fill_postal_code(self, postal_code):
+        self.postal_code.fill(postal_code)
     @allure.step("Нажатие на кнопку Cancel")
     def click_cancel_button(self):
         self.cancel_button.click()
@@ -102,6 +105,9 @@ class CheckoutTwoPage (BasePage):
     @allure.step("Получение количества всех добавленных товаров в заказе")
     def get_item_count_in_order(self):
         return len(self.item_name.all_inner_texts())
+    @allure.step("Получение списка названий товаров в заказе")
+    def get_lst_item_names(self):
+        return self.item_name.all_inner_texts()
 
 class CheckoutCompletePage (BasePage):
     def __init__(self, page: Page):
