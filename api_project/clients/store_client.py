@@ -12,6 +12,6 @@ class StoreClient(BaseClient):
     @allure.step("Удаление заказа по ID: {order_id}")
     def delete_order_by_id(self, order_id):
         return self._request("DELETE", f"{Endpoints.STORE_ORDER.value}/{order_id}")
-    @allure.step("Получение инвенторя питомца")
+    @allure.step("Получение инвентаря питомца")
     def get_inventory(self):
-        return self._request("GET", "/store/inventory")
+        return self._request("GET", Endpoints.STORE_INVENTORY)

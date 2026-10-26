@@ -15,3 +15,6 @@ class PetClient(BaseClient):
     @allure.step("Обновление питомца")
     def update_pet(self, payload):
         return self._request("PUT", Endpoints.PET, json=payload)
+    @allure.step("Поиск питомца по статусу: {status}")
+    def find_pet_by_status(self, status: str):
+        return self._request("GET", Endpoints.PET_FIND_BY_STATUS, params={"status": status})
