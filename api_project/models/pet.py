@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Literal
 
 class Category(BaseModel):
     id: int
@@ -13,4 +13,8 @@ class PetModel(BaseModel):
     name: str
     photoUrls: List[str]
     tags: Optional[List[Tag]] = None
-    status: str
+    status: Literal["available", "pending", "sold"]
+class ApiResponseModel(BaseModel):
+    code: int
+    type: str
+    message: str
