@@ -1,0 +1,13 @@
+URL: https://petstore.swagger.io/v2/user/kimberlylee
+Status Code: 200
+Response Body: 
+{
+    "id": 48809,
+    "username": "kimberlylee",
+    "firstName": "ChangeFirstName",
+    "lastName": "Rodriguez",
+    "email": "vaughnmargaret@example.net",
+    "password": "5bGhJclY@r",
+    "phone": "276.915.8588x9254",
+    "userStatus": 1
+}

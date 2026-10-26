@@ -1,0 +1,3 @@
+URL: https://petstore.swagger.io/v2/user/sarah31
+Status Code: 404
+Response Body: 

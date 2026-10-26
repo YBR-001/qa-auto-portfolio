@@ -1,0 +1,21 @@
+URL: https://petstore.swagger.io/v2/pet
+Status Code: 200
+Response Body: 
+{
+    "id": 652239,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "Nicole",
+    "photoUrls": [
+        "https://placekittens.com/327/988"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "good_boy"
+        }
+    ],
+    "status": "available"
+}

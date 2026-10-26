@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/user/kimberlylee
+Status Code: 200
+Response Body: 
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "kimberlylee"
+}

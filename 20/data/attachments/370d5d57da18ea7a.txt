@@ -1,0 +1,3 @@
+URL: https://petstore.swagger.io/v2/pet/999999999999999
+Status Code: 404
+Response Body: 

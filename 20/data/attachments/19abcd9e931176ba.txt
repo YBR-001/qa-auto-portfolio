@@ -1,0 +1,10 @@
+URL: https://petstore.swagger.io/v2/store/inventory
+Status Code: 200
+Response Body: 
+{
+    "sold": 13,
+    "string": 298,
+    "pending": 7,
+    "available": 291,
+    "peric": 38
+}

@@ -1,0 +1,124 @@
+URL: https://petstore.swagger.io/v2/pet/findByStatus?status=pending
+Status Code: 200
+Response Body: 
+[
+    {
+        "id": 31662904,
+        "category": {
+            "id": -72976378,
+            "name": "consequat commodo dolor"
+        },
+        "name": "doggie",
+        "photoUrls": [
+            "dolor",
+            "aliquip"
+        ],
+        "tags": [
+            {
+                "id": -81536039,
+                "name": "officia non exercitation laborum"
+            },
+            {
+                "id": -81700539,
+                "name": "sed quis"
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "id": 1793024176,
+        "category": {
+            "id": 1793024176,
+            "name": "dog"
+        },
+        "name": "hello kity with form updated",
+        "photoUrls": [
+            "http://foo.bar.com/1",
+            "http://foo.bar.com/2"
+        ],
+        "tags": [
+            {
+                "id": 1793024176,
+                "name": "swagger-codegen-python-pet-tag"
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "id": 1793024319003170,
+        "category": {
+            "id": 1,
+            "name": "Default Category"
+        },
+        "name": "playwright-pet-1793024319003170-updated",
+        "photoUrls": [],
+        "tags": [],
+        "status": "pending"
+    },
+    {
+        "id": 1793024320004320,
+        "category": {
+            "id": 1,
+            "name": "Default Category"
+        },
+        "name": "playwright-pet-1793024320004320",
+        "photoUrls": [],
+        "tags": [],
+        "status": "pending"
+    },
+    {
+        "id": 1793024696,
+        "category": {
+            "id": 1793024696,
+            "name": "dog"
+        },
+        "name": "hello kity with form updated",
+        "photoUrls": [
+            "http://foo.bar.com/1",
+            "http://foo.bar.com/2"
+        ],
+        "tags": [
+            {
+                "id": 1793024696,
+                "name": "swagger-codegen-python-pet-tag"
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "id": 955010,
+        "category": {
+            "id": 4069,
+            "name": "Cat"
+        },
+        "name": "carnivorous",
+        "photoUrls": [
+            "string"
+        ],
+        "tags": [
+            {
+                "id": 224,
+                "name": "Rabitstring"
+            }
+        ],
+        "status": "pending"
+    },
+    {
+        "id": 261540,
+        "category": {
+            "id": 1,
+            "name": "Dogs"
+        },
+        "name": "UpdatedWorkflowDog-261540",
+        "photoUrls": [
+            "https://example.com/photo1.jpg"
+        ],
+        "tags": [
+            {
+                "id": 1,
+                "name": "test-tag"
+            }
+        ],
+        "status": "pending"
+    }
+]

@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/user/non_existing_a0c823dd-c15f-4bb0-9792-f94c27263562
+Status Code: 404
+Response Body: 
+{
+    "code": 1,
+    "type": "error",
+    "message": "User not found"
+}

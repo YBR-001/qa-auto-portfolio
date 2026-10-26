@@ -1,0 +1,21 @@
+URL: https://petstore.swagger.io/v2/pet/26078
+Status Code: 200
+Response Body: 
+{
+    "id": 26078,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "UpdatedName",
+    "photoUrls": [
+        "https://picsum.photos/156/1001"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "good_boy"
+        }
+    ],
+    "status": "sold"
+}

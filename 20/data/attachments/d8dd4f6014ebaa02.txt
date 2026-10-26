@@ -1,0 +1,13 @@
+URL: https://petstore.swagger.io/v2/user/richard01
+Status Code: 200
+Response Body: 
+{
+    "id": 57771,
+    "username": "richard01",
+    "firstName": "John",
+    "lastName": "Kane",
+    "email": "lhall@example.org",
+    "password": "m50A!ePq!a",
+    "phone": "9268372655",
+    "userStatus": 1
+}

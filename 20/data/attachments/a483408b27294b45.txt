@@ -1,0 +1,6 @@
+curl -x GET 'https://petstore.swagger.io/v2/user/non_existing_a0c823dd-c15f-4bb0-9792-f94c27263562' \
+ -H 'host: petstore.swagger.io' \
+ -H 'accept: */*' \
+ -H 'accept-encoding: gzip, deflate' \
+ -H 'connection: keep-alive' \
+ -H 'user-agent: python-httpx/0.28.1' \

@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/pet/798219
+Status Code: 200
+Response Body: 
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "798219"
+}

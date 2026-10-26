@@ -1,0 +1,9 @@
+curl -x POST 'https://petstore.swagger.io/v2/pet' \
+ -H 'host: petstore.swagger.io' \
+ -H 'accept: */*' \
+ -H 'accept-encoding: gzip, deflate' \
+ -H 'connection: keep-alive' \
+ -H 'user-agent: python-httpx/0.28.1' \
+ -H 'content-length: 166' \
+ -H 'content-type: application/json' \
+ -d '{"id":612708,"name":"Aaron","category":{"id":1,"name":"Dogs"},"photoUrls":["https://dummyimage.com/811x152"],"tags":[{"id":1,"name":"good_boy"}],"status":"available"}' \

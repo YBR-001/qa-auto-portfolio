@@ -1,0 +1,11 @@
+URL: https://petstore.swagger.io/v2/store/order/6538
+Status Code: 200
+Response Body: 
+{
+    "id": 6538,
+    "petId": 482194,
+    "quantity": 0,
+    "shipDate": "2026-10-08T08:16:09.217+0000",
+    "status": "placed",
+    "complete": true
+}

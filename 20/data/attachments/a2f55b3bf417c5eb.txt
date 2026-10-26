@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/user/login?username=erik57&password=%7B%27id%27%3A+87407%2C+%27username%27%3A+%27erik57%27%2C+%27firstName%27%3A+%27Rebecca%27%2C+%27lastName%27%3A+%27Ingram%27%2C+%27email%27%3A+%27timothyshelton%40example.net%27%2C+%27password%27%3A+%27C%40_31igl%251%27%2C+%27phone%27%3A+%27656-276-1301x3694%27%2C+%27userStatus%27%3A+1%7D
+Status Code: 200
+Response Body: 
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "logged in user session:1793025249467"
+}

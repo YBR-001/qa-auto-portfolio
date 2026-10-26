@@ -1,0 +1,9 @@
+curl -x POST 'https://petstore.swagger.io/v2/user/createWithList' \
+ -H 'host: petstore.swagger.io' \
+ -H 'accept: */*' \
+ -H 'accept-encoding: gzip, deflate' \
+ -H 'connection: keep-alive' \
+ -H 'user-agent: python-httpx/0.28.1' \
+ -H 'content-length: 330' \
+ -H 'content-type: application/json' \
+ -d '[{"id":59778,"username":"bellamy","firstName":"Todd","lastName":"Stokes","email":"jeffrey12@example.com","password":"^XZ8HGgZpE","phone":"(720)679-2028","userStatus":1},{"id":57771,"username":"richard01","firstName":"John","lastName":"Kane","email":"lhall@example.org","password":"m50A!ePq!a","phone":"9268372655","userStatus":1}]' \

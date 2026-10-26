@@ -1,0 +1,21 @@
+URL: https://petstore.swagger.io/v2/pet
+Status Code: 200
+Response Body: 
+{
+    "id": 612708,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "Aaron",
+    "photoUrls": [
+        "https://dummyimage.com/811x152"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "good_boy"
+        }
+    ],
+    "status": "available"
+}

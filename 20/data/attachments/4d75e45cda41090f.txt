@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/user/login?username=kimberlylee&password=%25PSnPxHjK8
+Status Code: 200
+Response Body: 
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "logged in user session:1793025244361"
+}

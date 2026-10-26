@@ -1,0 +1,8 @@
+URL: https://petstore.swagger.io/v2/store/order/9999999999999999999
+Status Code: 404
+Response Body: 
+{
+    "code": 404,
+    "type": "unknown",
+    "message": "java.lang.NumberFormatException: For input string: \"9999999999999999999\""
+}

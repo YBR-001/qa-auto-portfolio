@@ -1,0 +1,21 @@
+URL: https://petstore.swagger.io/v2/pet/798219
+Status Code: 200
+Response Body: 
+{
+    "id": 798219,
+    "category": {
+        "id": 1,
+        "name": "Dogs"
+    },
+    "name": "Amanda",
+    "photoUrls": [
+        "https://dummyimage.com/663x902"
+    ],
+    "tags": [
+        {
+            "id": 1,
+            "name": "good_boy"
+        }
+    ],
+    "status": "available"
+}

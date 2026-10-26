@@ -1,0 +1,9 @@
+curl -x PUT 'https://petstore.swagger.io/v2/pet' \
+ -H 'host: petstore.swagger.io' \
+ -H 'accept: */*' \
+ -H 'accept-encoding: gzip, deflate' \
+ -H 'connection: keep-alive' \
+ -H 'user-agent: python-httpx/0.28.1' \
+ -H 'content-length: 167' \
+ -H 'content-type: application/json' \
+ -d '{"id":482194,"name":"Jessica","category":{"id":1,"name":"Dogs"},"photoUrls":["https://picsum.photos/812/919"],"tags":[{"id":1,"name":"good_boy"}],"status":"available"}' \
